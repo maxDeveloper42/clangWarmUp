@@ -1,0 +1,26 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executable binaries
+phonebook
+hashbook
+
+# Database generated files
+*.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Editor / OS junk
+*~
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+
