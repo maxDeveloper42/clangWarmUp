@@ -1,26 +1,60 @@
-# Compiled object files
-*.o
-*.obj
+# Prerequisites
+*.d
 
-# Executable binaries
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Executables
+*.exe
+*.out
+*.app
 phonebook
 hashbook
 
-# Database generated files
+# Database files
 *.db
+*.sqlite
+*.sqlite3
+contacts.db
 
-# Python cache
-__pycache__/
+# Python compiled files (if any)
 *.pyc
 *.pyo
-*.pyd
+__pycache__/
 
-# Editor / OS junk
+# Backup and swap files
 *~
-.DS_Store
-.vscode/
-.idea/
-
-# Temporary files
+*.swp
+*.swo
+*.bak
 *.tmp
 
+# IDE / editor specific
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Build directories (if you ever add them)
+build/
+bin/
+lib/
+obj/
+
+# OS generated files
+.DS_Store
+Thumbs.db
