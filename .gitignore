@@ -1,60 +1,26 @@
-# Prerequisites
-*.d
+# Ignore everything
+*
 
-# Object files
+# Whitelist source files
+!*.c
+!*.h
+!*.md
+!Makefile
+!*.py
+
+# Keep directories
+!*/
+
+# Keep GitHub Actions CI folder
+!/.github/
+!/.github/workflows/
+!/.github/workflows/c-build.yml
+
+# Ignore compiled artifacts and debug files
 *.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Executables
-*.exe
 *.out
-*.app
-phonebook
-hashbook
+*.elf
+test_memcpy
+test_memcpy_small
+.gdb_history
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-contacts.db
-
-# Python compiled files (if any)
-*.pyc
-*.pyo
-__pycache__/
-
-# Backup and swap files
-*~
-*.swp
-*.swo
-*.bak
-*.tmp
-
-# IDE / editor specific
-.vscode/
-.idea/
-*.iml
-.classpath
-.project
-.settings/
-
-# Build directories (if you ever add them)
-build/
-bin/
-lib/
-obj/
-
-# OS generated files
-.DS_Store
-Thumbs.db

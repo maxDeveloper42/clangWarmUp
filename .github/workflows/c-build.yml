@@ -1,0 +1,43 @@
+name: C Build & Test CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build all C projects
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: sudo apt update && sudo apt install -y gcc make
+
+      - name: Build harderWithHash
+        run: |
+          cd harderWithHash
+          make clean
+          make
+
+      - name: Build linkedList
+        run: |
+          cd linkedList
+          make clean
+          make
+
+      - name: Build linkedListForceCrash
+        run: |
+          cd linkedListForceCrash
+          make clean
+          make
+
+      - name: Build zephyrMemCopyTest and run test
+        run: |
+          cd zephyrMemCopyTest
+          make clean
+          make
+          ./test_memcpy
+
