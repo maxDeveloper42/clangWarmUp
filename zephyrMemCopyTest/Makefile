@@ -10,7 +10,7 @@
 #   make clean    # remove binaries
 
 CC       = gcc
-CFLAGS   = -std=gnu99 -Wall -Wextra -O2
+CFLAGS   = -std=gnu99 -Wall -Wextra -O2 -g
 LDFLAGS  =
 SOURCES  = memcpy.c test_memcpy.c
 OBJS     = $(SOURCES:.c=.o)
