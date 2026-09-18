@@ -22,3 +22,14 @@ gcc -g main.c -o out
 3. **Struct array**: valid, each element is a struct; access members with `arr[i].member`.
 4. **Hex**: `0xF` = 4 bits; two hex digits = 1 byte (`0xFF`).
 5. **GDB**: inspect assembly to verify compile-time constant evaluation for `sizeof` on fixed arrays.
+
+
+---
+
+try to searh a funct:
+
+```bash
+grep -rn "printf"
+```
+
+
