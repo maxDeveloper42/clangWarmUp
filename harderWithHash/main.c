@@ -20,6 +20,12 @@ int main(void)
     int choice;
     char name[NAME_LEN], phone[PHONE_LEN];
 
+    /*
+    while(1){
+        print_menu();
+    }
+    */
+
     while (1) {
         print_menu();
         if (scanf("%d", &choice) != 1) {

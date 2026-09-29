@@ -6,8 +6,11 @@
 #define NAME_LEN  64
 #define PHONE_LEN 32
 #define FILE_NAME "contacts.db"
-#define INIT_SIZE 8
+// #define INIT_SIZE 8
 
+#define INIT_SIZE 4
+
+// here the typedef have to Contact, kind of speciall, likely to bcs it refers to itself.
 typedef struct Contact {
     char name[NAME_LEN];
     char phone[PHONE_LEN];
@@ -16,6 +19,15 @@ typedef struct Contact {
 
 typedef struct {
     Contact **buckets;
+    // you shall figure out why there is **
+    //buckets is a pointer to a pointer to Contact
+    /*
+    Contact *
+    Contact *bucket[]
+    Contact **bucket
+    So, there the bucket is the addr of the array
+    and each element of the array is a pointer to Contact
+     */
     size_t size;
     size_t count;
 } HashTable;
@@ -32,6 +44,8 @@ void ht_list(const HashTable *ht);
 
 /* Persistence */
 int ht_save(const HashTable *ht);
+
+// i think i should start form here
 HashTable* ht_load(void);
 
 #endif

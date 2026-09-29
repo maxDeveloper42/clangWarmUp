@@ -4,6 +4,7 @@
 #include "hashbook.h"
 
 /* djb2 hash: good distribution, fast, simple */
+// what is DJB2!!!?!?!
 static unsigned long hash_str(const char *str, size_t bucket_count)
 {
     unsigned long hash = 5381;
@@ -78,6 +79,7 @@ static int ht_resize(HashTable *ht)
 void ht_add(HashTable *ht, const char *name, const char *phone)
 {
     /* Load factor > 0.75 ? resize */
+	// this is the resize function, look at it later on
     if (ht->count >= ht->size * 0.75) {
         if (ht_resize(ht) != 0) {
             perror("resize failed");
@@ -85,6 +87,7 @@ void ht_add(HashTable *ht, const char *name, const char *phone)
         }
     }
 
+    // this seems to be the get bucket number function
     unsigned long h = hash_str(name, ht->size);
 
     /* Check duplicate */
@@ -99,6 +102,7 @@ void ht_add(HashTable *ht, const char *name, const char *phone)
     }
 
     /* Prepend new node */
+    // the newc is just New Contact
     Contact *newc = malloc(sizeof(Contact));
     if (!newc) {
         perror("malloc failed");
@@ -110,6 +114,10 @@ void ht_add(HashTable *ht, const char *name, const char *phone)
     strncpy(newc->phone, phone, PHONE_LEN - 1);
     newc->phone[PHONE_LEN - 1] = '\0';
 
+    // this step seems important!!!, what is the h here?
+    // seems the data will only grow form the root
+    // yes, grow form the root, and the buckets[h] alwasy keep changing,
+    // each time is the new item poped in
     newc->next = ht->buckets[h];
     ht->buckets[h] = newc;
     ht->count++;
@@ -195,6 +203,7 @@ HashTable* ht_load(void)
     FILE *fp = fopen(FILE_NAME, "r");
     if (!fp) return ht_create();
 
+    // there is a lot fault catch, i find hard to think of those fault
     HashTable *ht = ht_create();
     if (!ht) return NULL;
 
