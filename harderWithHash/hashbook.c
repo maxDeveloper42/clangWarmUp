@@ -29,6 +29,8 @@ HashTable* ht_create(void)
     return ht;
 }
 
+// this is obviously a free function for linked list
+// and the head is the addr of first node in linked list
 static void free_chain(Contact *head)
 {
     Contact *tmp;
@@ -44,6 +46,7 @@ void ht_destroy(HashTable *ht)
     if (!ht) return;
     for (size_t i = 0; i < ht->size; i++)
         free_chain(ht->buckets[i]);
+    // i dont understand this line: why it need to free this, wont it be the first node of the list?
     free(ht->buckets);
     free(ht);
 }
@@ -54,6 +57,7 @@ static int ht_resize(HashTable *ht)
     size_t old_size = ht->size;
     Contact **old_buckets = ht->buckets;
 
+    // new_size just twice of the old size
     size_t new_size = old_size * 2;
     Contact **new_buckets = calloc(new_size, sizeof(Contact *));
     if (!new_buckets) return -1;

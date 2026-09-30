@@ -6,3 +6,13 @@ It exerice my basic understanding of c and the pholosophy of programming, additi
 Hint, if you want to debug, you should add the -g flash in CFLAG
 
 a gdb beautify script: [GDB dashboard](https://github.com/cyrus-and/gdb-dashboard)
+
+
+---
+
+in macos, if you want to with debug, you shall use:
+
+```bash
+clang -g -gdwarf-4 main.c hashbook.c -o hashbook
+```
+
