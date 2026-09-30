@@ -37,6 +37,34 @@ To write a script, use the shebang
 ```bash
 #!/bin/bash
 ```
+About print:
+x, hex
+d, decimal
+
+What is the calloc in C?
+Allocate contiguous memory for an array and initialize all bytes to zero.
+
+FreeBSD / macOS do not support %b in printf
+
+variables:
+```c
+a = 0xAA;
+c = 0b10101010;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
